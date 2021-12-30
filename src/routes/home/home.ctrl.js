@@ -1,10 +1,6 @@
 "use strict";
 
-const users={
-  id:["njh3421","나나","남"],
-  password:["1234","1111","3333"],
-}
-
+const UserStorage=require("../../models/UserStorage.js")
 
 const output={
   home: (req,res) => {
@@ -20,18 +16,24 @@ const process={
     const id=req.body.id,
     password=req.body.password
 
+    // const userStorage=new UserStorage();
+    // console.log(userStorage.users);
+
+    const users= UserStorage.getUsers("id","password");
+    //원래 이런식으로 외부파일에 다이렉트로 접근할수 없어야한다.-> UserStorage users부분에서 계속
+    //하지만 데이터를 받아와서 로그인의 성공여부에 대한 로직을 확인해야하기에 UserStorage에 메서드를 만든다
+    
+    const response={};
     if(users.id.includes(id)){
       const idx=users.id.indexOf(id);
       if(users.password[idx]===password){
-        return res.json({
-          success:true,
-        })
+        response.success=true;
+        return res.json(response);
       }
     }
-    return res.json({
-      success:false,
-      msg:"로그인에 실패하셨습니다."
-    })
+    response.success=false;
+    response.msg="로그인에 실패하셨습니다."
+    return res.json(response);
   }
 }
 
