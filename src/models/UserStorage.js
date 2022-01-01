@@ -38,6 +38,18 @@ class UserStorage {
     return this.#users;
   }
   */
+
+  static getUserInfo(id){
+    const users=this.#users;
+    const idx=users.id.indexOf(id);
+    const usersKeys=Object.keys(users) // => 유저의 key 값들만 배열로 [id,password,name]
+    const userInfo = usersKeys.reduce((newUser,info)=>{
+      newUser[info]=users[info][idx];
+      return newUser;
+    },{});
+
+    return userInfo;
+  }
 }
 /*
 이런식으로 static 변수로 만들어버리면 home.ctrl파일에서 값을 알아내려고
