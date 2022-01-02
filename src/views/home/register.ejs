@@ -5,11 +5,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="/css/home/register.css">
+  <script src="/js/home/register.js" defer></script>
 </head>
 <body>
-  <input type="text" placeholder="Id를 입력하세요" required><br>
-  <input type="text" placeholder="비밀번호를 입력하세요" required><br>
-  <input type="text" placeholder="닉네임을 입력하세요" required><br>
-  <button>회원가입</button>
+  <div class="login-page">
+    <div class="form">
+      <form class="login-form">
+        <input id="id" type="text" placeholder="아이디"/>
+        <input id="name" type="text" placeholder="이름"/>
+        <input id="psword" type="password" placeholder="비밀번호"/>
+        <input id="confirm-psword" type="password" placeholder="비밀번호확인"/>
+        <p class="regiBtn">회원가입</p>
+        <p class="message">이미 가입되있나요?</p><a href="/login">Login an account</a></p>
+      </form>
+    </div>
+  </div>
 </body>
 </html>
