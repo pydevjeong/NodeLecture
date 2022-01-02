@@ -20,7 +20,6 @@ const process={
     const user =new User(req.body);
     const resposne=user.login();
     return res.json(resposne);
-
     /* 간단한 구현
     // const id=req.body.id,
     // password=req.body.password
@@ -44,6 +43,11 @@ const process={
     // response.msg="로그인에 실패하셨습니다."
     // return res.json(response);
     */
+  },
+  register: (req,res) =>{
+    const user =new User(req.body);
+    const resposne=user.register();
+    return res.json(resposne);
   }
 }
 

@@ -50,6 +50,14 @@ class UserStorage {
 
     return userInfo;
   }
+
+  static save(userInfo){
+    const users=this.#users;
+    users.id.push(userInfo.id);
+    users.name.push(userInfo.name);
+    users.password.push(userInfo.psword);
+    return {success:true}
+  }
 }
 /*
 이런식으로 static 변수로 만들어버리면 home.ctrl파일에서 값을 알아내려고
